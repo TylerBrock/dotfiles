@@ -1,6 +1,10 @@
 set nocompatible
 
+"python import sys; sys.path.append("/Library/Python/2.7/site-packages/");
+"python from powerline import source_plugin; source_plugin();
+
 colorscheme jellybeans
+syntax on
 set linespace=0
 set backspace=indent,eol,start
 set nu
@@ -36,7 +40,9 @@ Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-haml"
 Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-surround"
-Bundle "Lokaltog/vim-powerline"
+Bundle "tpope/vim-rake"
+Bundle "tpope/vim-rails"
+"Bundle "Lokaltog/vim-powerline"
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -51,8 +57,9 @@ set guioptions-=rL
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
 "GUI Size
-"if has("gui_running") | set lines=40 columns=120 | endif
-set lines=60 columns=120
+if has("gui_running")
+    set lines=60 columns=120
+endif
 
 if has('cmdline_info')
     set ruler                   " Show the ruler
