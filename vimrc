@@ -3,7 +3,6 @@ set nocompatible
 "python import sys; sys.path.append("/Library/Python/2.7/site-packages/");
 "python from powerline import source_plugin; source_plugin();
 
-colorscheme jellybeans
 syntax on
 set linespace=0
 set backspace=indent,eol,start
@@ -42,7 +41,10 @@ Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-rake"
 Bundle "tpope/vim-rails"
+Bundle "nanotech/jellybeans.vim"
 "Bundle "Lokaltog/vim-powerline"
+
+colorscheme jellybeans
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
