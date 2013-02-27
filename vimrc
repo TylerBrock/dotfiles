@@ -22,7 +22,7 @@ set smartindent
 set autoindent
 set copyindent
 set showmode
-set spell
+"set spell
 set history=1000
 filetype indent on
 
@@ -42,6 +42,7 @@ Bundle "tpope/vim-surround"
 Bundle "tpope/vim-rake"
 Bundle "tpope/vim-rails"
 Bundle "nanotech/jellybeans.vim"
+Bundle "majutsushi/tagbar"
 "Bundle "Lokaltog/vim-powerline"
 
 colorscheme jellybeans
@@ -51,6 +52,10 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-a> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
+
+"Tagbar
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+nmap <F8> :TagbarToggle<CR>
 
 "Disable Scrollbars in GVIM
 set guioptions-=rL
