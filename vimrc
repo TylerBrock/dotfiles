@@ -24,6 +24,8 @@ set copyindent
 set showmode
 "set spell
 set history=1000
+set encoding=utf-8
+set ttyfast
 filetype indent on
 
 filetype off
@@ -32,6 +34,7 @@ call vundle#rc()
 filetype plugin indent on
 
 Bundle "scrooloose/nerdtree"
+"Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-markdown"
@@ -42,20 +45,25 @@ Bundle "tpope/vim-surround"
 Bundle "tpope/vim-rake"
 Bundle "tpope/vim-rails"
 Bundle "nanotech/jellybeans.vim"
+Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
-"Bundle "Lokaltog/vim-powerline"
+Bundle "Lokaltog/vim-powerline"
 
 colorscheme jellybeans
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <C-a> :NERDTreeToggle<CR>
-let NERDTreeMinimalUI=1
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+let NERDTreeMinimalUI = 1
+let g:nerdtree_tabs_open_on_console_startup = 1
+
 
 "Tagbar
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+autocmd FileType * nested :call tagbar#autoopen(0)
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_singleclick = 1
+let g:tagbar_compact = 1
 
 "Disable Scrollbars in GVIM
 set guioptions-=rL
@@ -68,6 +76,7 @@ if has("gui_running")
     set lines=60 columns=120
 endif
 
+"Status Line Stuff
 if has('cmdline_info')
     set ruler                   " Show the ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
@@ -86,3 +95,5 @@ if has('statusline')
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
+
+let g:Powerline_symbols = 'fancy'
