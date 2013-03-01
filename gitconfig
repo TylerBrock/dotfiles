@@ -6,3 +6,5 @@
 [user]
 	name = Tyler Brock
 	email = tyler.brock@gmail.com
+[push]
+	default = simple
