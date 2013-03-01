@@ -1,0 +1,8 @@
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	s = status -sb
+[color]
+	ui = true
+[user]
+	name = Tyler Brock
+	email = tyler.brock@gmail.com
