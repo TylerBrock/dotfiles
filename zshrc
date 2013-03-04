@@ -41,7 +41,6 @@ unsetopt correct_all
 source $ZSH/oh-my-zsh.sh
 
 # Python
-
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_DISTRIBUTE=true
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
@@ -51,6 +50,9 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 source /usr/local/share/python/virtualenvwrapper.sh
+
+# Deploy
+alias deploy-api-docs="ssh 10gen-east \"ops/systems/apache/www-c/deploy api master\" && ssh 10gen-west \"ops/systems/apache/www-c/deploy api master\""
 
 # AWS
 export AWS_DEFAULT_REGION=us-east-1
