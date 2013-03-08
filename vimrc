@@ -56,10 +56,10 @@ colorscheme jellybeans
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeMinimalUI = 1
 let g:nerdtree_tabs_open_on_console_startup = 1
-
 
 "Tagbar
 autocmd FileType * nested :call tagbar#autoopen(0)
@@ -75,7 +75,8 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
 "GUI Size
 if has("gui_running")
-    set lines=60 columns=120
+    set lines=60 columns=160
+    set guifont=Inconsolata-dz\ for\ Powerline:h12
 endif
 
 "Status Line Stuff
