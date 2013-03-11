@@ -40,6 +40,9 @@ unsetopt correct_all
 
 source $ZSH/oh-my-zsh.sh
 
+# Code Review
+alias cr="python ~/Code/scratch/python/code_review.py -y -s codereview.10gen.com -m"
+
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_DISTRIBUTE=true
