@@ -54,6 +54,9 @@ export PIP_RESPECT_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 source /usr/local/share/python/virtualenvwrapper.sh
 
+# Disable Autocorrect
+alias git lg='nocorrect git lg'
+
 # Deploy
 alias deploy-api-docs="ssh 10gen-east \"ops/systems/apache/www-c/deploy api master\" && ssh 10gen-west \"ops/systems/apache/www-c/deploy api master\""
 

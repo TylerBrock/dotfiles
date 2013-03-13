@@ -75,7 +75,7 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
 "GUI Size
 if has("gui_running")
-    set lines=60 columns=160
+    set lines=50 columns=160
     set guifont=Inconsolata-dz\ for\ Powerline:h12
 endif
 
