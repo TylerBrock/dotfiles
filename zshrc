@@ -38,6 +38,9 @@ JIRA_URL="https://jira.mongodb.org"
 
 unsetopt correct_all
 
+# rbenv
+eval "$(rbenv init -)"
+
 source $ZSH/oh-my-zsh.sh
 
 # Code Review
