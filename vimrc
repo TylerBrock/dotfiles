@@ -1,8 +1,5 @@
 set nocompatible
 
-"python import sys; sys.path.append("/Library/Python/2.7/site-packages/");
-"python from powerline import source_plugin; source_plugin();
-
 syntax on
 set linespace=0
 set backspace=indent,eol,start
@@ -26,6 +23,7 @@ set showmode
 set history=1000
 set encoding=utf-8
 set ttyfast
+set ambiwidth=double
 filetype indent on
 
 filetype off
@@ -33,6 +31,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
 
+Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 "Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-fugitive"
@@ -53,9 +52,12 @@ Bundle "Lokaltog/vim-powerline"
 
 colorscheme jellybeans
 
+"Powerline Theme
+"let g:Powerline_colorscheme='solarized256_dark'
+
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeMinimalUI = 1
@@ -81,10 +83,9 @@ endif
 
 "Status Line Stuff
 if has('cmdline_info')
-    set ruler                   " Show the ruler
+    set ruler    " Show the ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-    set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
+    set showcmd  " Show partial commands in status line
 endif
 
 if has('statusline')
@@ -98,5 +99,9 @@ if has('statusline')
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
+
+"RSpec
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
 
 let g:Powerline_symbols = 'fancy'

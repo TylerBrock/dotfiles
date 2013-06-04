@@ -18,7 +18,7 @@ ZSH_THEME="afowler"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=1
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -37,10 +37,6 @@ plugins=(git github rbenv ruby jruby gem rake python node fabric rsync jira subl
 JIRA_URL="https://jira.mongodb.org"
 
 unsetopt correct_all
-
-# rbenv
-eval "$(rbenv init -)"
-
 source $ZSH/oh-my-zsh.sh
 
 # Code Review
@@ -71,3 +67,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 
 # rbenv
 eval "$(rbenv init -)"
+
+export MAKE_OPTS="-j8"
