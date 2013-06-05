@@ -34,6 +34,7 @@ filetype plugin indent on
 
 "Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
+Bundle "scrooloose/syntastic"
 "Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-sensible"
 Bundle "tpope/vim-fugitive"
@@ -52,8 +53,12 @@ Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
 Bundle "Lokaltog/vim-powerline"
+Bundle "Shougo/neocomplcache"
 
 colorscheme jellybeans
+
+"NeoComplCache
+"let g:neocomplcache_enable_at_startup = 1
 
 "Powerline Theme
 "let g:Powerline_colorscheme='solarized256_dark'
@@ -113,5 +118,4 @@ endif
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 
-let g:Powerline_symbols = 'fancy'
-
+"let g:Powerline_symbols = 'fancy'
