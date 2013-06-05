@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="afowler"
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,7 +40,9 @@ unsetopt correct_all
 source $ZSH/oh-my-zsh.sh
 
 # Code Review
-alias cr="python ~/Code/scratch/python/code_review.py -y -s codereview.10gen.com -m"
+UPLOAD_PY="~/Code/scratch/python/code_review.py"
+CR_SERVER="codereview.10gen.com"
+alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
@@ -57,13 +59,15 @@ source /usr/local/share/python/virtualenvwrapper.sh
 alias git lg='nocorrect git lg'
 
 # Deploy
-alias deploy-api-docs="ssh 10gen-east \"ops/systems/apache/www-c/deploy api master\" && ssh 10gen-west \"ops/systems/apache/www-c/deploy api master\""
+API_DEPLOY_EAST="ssh 10gen-east \"ops/systems/apache/www-c/deploy api master\""
+API_DEPLOY_WEST="ssh 10gen-west \"ops/systems/apache/www-c/deploy api master\""
+alias deploy-api-docs="$API_DEPLOY_EAST && $API_DEPLOY_WEST"
 
 # AWS
 export AWS_DEFAULT_REGION=us-east-1
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/python
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/python:/usr/local/share/npm/bin
 
 # rbenv
 eval "$(rbenv init -)"

@@ -24,6 +24,7 @@ set history=1000
 set encoding=utf-8
 set ttyfast
 set ambiwidth=double
+set undodir^=~/.vim/undo
 filetype indent on
 
 filetype off
@@ -31,9 +32,10 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
 
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 "Bundle "jistr/vim-nerdtree-tabs"
+Bundle "tpope/vim-sensible"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-markdown"
@@ -48,12 +50,19 @@ Bundle "tpope/vim-bundler"
 Bundle "nanotech/jellybeans.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
+Bundle "airblade/vim-gitgutter"
 Bundle "Lokaltog/vim-powerline"
 
 colorscheme jellybeans
 
 "Powerline Theme
 "let g:Powerline_colorscheme='solarized256_dark'
+
+"GitGutter
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_escape_grep = 1
+highlight clear SignColumn
+set numberwidth=1
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -105,3 +114,4 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 
 let g:Powerline_symbols = 'fancy'
+
