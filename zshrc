@@ -36,8 +36,9 @@ plugins=(git github rbenv ruby jruby gem rake python node fabric rsync jira subl
 
 JIRA_URL="https://jira.mongodb.org"
 
-unsetopt correct_all
 source $ZSH/oh-my-zsh.sh
+unsetopt correct_all
+unsetopt correct
 
 # Code Review
 UPLOAD_PY="~/Code/scratch/python/code_review.py"

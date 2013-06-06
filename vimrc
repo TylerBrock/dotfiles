@@ -1,6 +1,5 @@
 set nocompatible
 
-syntax on
 set linespace=0
 set backspace=indent,eol,start
 set nu
@@ -23,14 +22,13 @@ set history=1000
 set encoding=utf-8
 set ttyfast
 set ambiwidth=double
-filetype indent on
 
+"Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-filetype plugin indent on
 
-"Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/syntastic"
 "Bundle "jistr/vim-nerdtree-tabs"
@@ -52,7 +50,11 @@ Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
+Bundle "wting/rust.vim"
 
+filetype plugin indent on
+
+syntax on
 colorscheme jellybeans
 
 "NeoComplCache
@@ -72,7 +74,7 @@ set numberwidth=1
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeMinimalUI = 1
@@ -114,9 +116,11 @@ if has('statusline')
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
+"let g:Powerline_symbols = 'fancy'
 
 "RSpec
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 
-"let g:Powerline_symbols = 'fancy'
+" Rust
+"au BufRead,BufNewFile *.rs,*.rc set filetype=rust
