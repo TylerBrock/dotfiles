@@ -19,12 +19,10 @@ set smartindent
 set autoindent
 set copyindent
 set showmode
-"set spell
 set history=1000
 set encoding=utf-8
 set ttyfast
 set ambiwidth=double
-set undodir^=~/.vim/undo
 filetype indent on
 
 filetype off
@@ -62,6 +60,9 @@ colorscheme jellybeans
 
 "Powerline Theme
 "let g:Powerline_colorscheme='solarized256_dark'
+
+"Set an non idiotic undodir
+set undodir=/tmp
 
 "GitGutter
 let g:gitgutter_sign_column_always = 1
