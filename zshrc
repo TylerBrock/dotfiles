@@ -75,4 +75,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 # rbenv
 eval "$(rbenv init -)"
 
+export EDITOR="vim"
 export MAKE_OPTS="-j8"
