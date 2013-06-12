@@ -51,6 +51,7 @@ Bundle "airblade/vim-gitgutter"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
 Bundle "wting/rust.vim"
+Bundle "klen/python-mode"
 
 filetype plugin indent on
 
@@ -91,6 +92,7 @@ set guioptions-=rL
 
 "Indents
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 "GUI Size
 if has("gui_running")
@@ -122,5 +124,5 @@ endif
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 
-" Rust
-"au BufRead,BufNewFile *.rs,*.rc set filetype=rust
+"Python
+let g:pymode_virtualenv = 1
