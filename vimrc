@@ -50,6 +50,7 @@ Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
+Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
 
