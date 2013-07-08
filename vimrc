@@ -52,7 +52,7 @@ Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
-"Bundle "klen/python-mode"
+Bundle "klen/python-mode"
 
 filetype plugin indent on
 
@@ -66,7 +66,7 @@ colorscheme jellybeans
 "let g:Powerline_colorscheme='solarized256_dark'
 
 "Set an non idiotic undodir
-set undodir=/tmp
+set undodir^=~/.vim/undo
 
 "GitGutter
 let g:gitgutter_sign_column_always = 1
