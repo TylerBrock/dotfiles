@@ -52,7 +52,7 @@ Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
-Bundle "klen/python-mode"
+"Bundle "klen/python-mode"
 
 filetype plugin indent on
 
@@ -127,3 +127,4 @@ highlight def link rubyRspec Function
 
 "Python
 let g:pymode_virtualenv = 1
+let g:pymode_folding = 0
