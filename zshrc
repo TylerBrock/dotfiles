@@ -77,3 +77,7 @@ eval "$(rbenv init -)"
 
 export EDITOR="vim"
 export MAKE_OPTS="-j8"
+
+alias mongo="mongo --quiet"
+alias gs="git status"
+alias gp="git pull --rebase"
