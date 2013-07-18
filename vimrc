@@ -28,7 +28,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/syntastic"
 "Bundle "jistr/vim-nerdtree-tabs"
@@ -76,14 +76,14 @@ set numberwidth=1
 
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeMinimalUI = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
+"let g:nerdtree_tabs_open_on_console_startup = 1
 
 "Tagbar
-autocmd FileType * nested :call tagbar#autoopen(0)
+"autocmd FileType * nested :call tagbar#autoopen(0)
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
 let g:tagbar_compact = 1
@@ -128,3 +128,4 @@ highlight def link rubyRspec Function
 "Python
 let g:pymode_virtualenv = 1
 let g:pymode_folding = 0
+let NERDTreeIgnore = ['\.pyc$']
