@@ -74,6 +74,9 @@ let g:gitgutter_escape_grep = 1
 highlight clear SignColumn
 set numberwidth=1
 
+"Bluedirs
+highlight Directory guifg=#88AAEE
+
 "NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
