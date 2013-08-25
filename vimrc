@@ -133,6 +133,9 @@ let g:pymode_virtualenv = 1
 let g:pymode_folding = 0
 let NERDTreeIgnore = ['\.pyc$']
 
+" C++11 Mode for Syntastic
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
 "Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
