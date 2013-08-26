@@ -83,3 +83,6 @@ alias gs="git status"
 alias gp="git pull --rebase"
 
 export TERM="xterm-256color"
+
+# syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
