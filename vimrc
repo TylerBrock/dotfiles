@@ -53,6 +53,7 @@ Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
+"Bundle "skwp/vim-rspec"
 
 filetype plugin indent on
 
@@ -164,6 +165,11 @@ let g:Powerline_symbols = 'fancy'
 "RSpec
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
+let g:rspec_command = "Dispatch rspec {spec}"
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
 
 "Python
 let g:pymode_virtualenv = 1
