@@ -13,6 +13,7 @@ set listchars=tab:,.,trail:.,extends:#,nbsp:.
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set smarttab
 set smartindent
 set autoindent
@@ -53,7 +54,12 @@ Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
+<<<<<<< HEAD
 "Bundle "skwp/vim-rspec"
+=======
+Bundle "othree/javascript-libraries-syntax.vim"
+Bundle "vim-scripts/a.vim"
+>>>>>>> 0385a30d3513f951e5d12b2b001b40bc0e013d6c
 
 filetype plugin indent on
 
@@ -188,3 +194,6 @@ nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" Javascript Frameworks
+let g:used_javascript_libs = 'angularjs,underscore,backbone'

@@ -29,11 +29,6 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenvwrapper)
-
 JIRA_URL="https://jira.mongodb.org"
 
 source $ZSH/oh-my-zsh.sh
@@ -55,9 +50,15 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git github rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenvwrapper)
 
 # Disable Autocorrect
 alias git lg='nocorrect git lg'
