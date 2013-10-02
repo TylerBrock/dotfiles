@@ -54,12 +54,9 @@ Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
-<<<<<<< HEAD
 "Bundle "skwp/vim-rspec"
-=======
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
->>>>>>> 0385a30d3513f951e5d12b2b001b40bc0e013d6c
 
 filetype plugin indent on
 
