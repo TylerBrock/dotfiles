@@ -49,7 +49,6 @@ Bundle "nanotech/jellybeans.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
-Bundle "Lokaltog/vim-powerline"
 Bundle "Shougo/neocomplcache"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
@@ -57,6 +56,7 @@ Bundle "klen/python-mode"
 "Bundle "skwp/vim-rspec"
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on
 
@@ -66,8 +66,9 @@ colorscheme jellybeans
 "NeoComplCache
 "let g:neocomplcache_enable_at_startup = 1
 
-"Powerline Theme
-"let g:Powerline_colorscheme='solarized256_dark'
+"Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
 
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
