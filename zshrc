@@ -29,7 +29,6 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt correct
 
@@ -56,7 +55,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenvwrapper)
+plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenvwrapper)
 
 # Disable Autocorrect
 alias git lg='nocorrect git lg'
@@ -88,3 +87,6 @@ alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=fo
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
