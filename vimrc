@@ -139,32 +139,13 @@ set guioptions-=rL
 "Indents
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 "GUI Size
 if has("gui_running")
     set lines=50 columns=160
     set guifont=Inconsolata-dz\ for\ Powerline:h12
 endif
-
-"Status Line Stuff
-if has('cmdline_info')
-    set ruler    " Show the ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-    set showcmd  " Show partial commands in status line
-endif
-
-if has('statusline')
-    set laststatus=2
-
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
-let g:Powerline_symbols = 'fancy'
 
 "RSpec
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
@@ -180,8 +161,9 @@ let g:pymode_virtualenv = 1
 let g:pymode_folding = 0
 let NERDTreeIgnore = ['\.pyc$']
 
-" C++11 Mode for Syntastic
+" Syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " C++ shit
 autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r.o').' && ./'.shellescape('%:r.o')<CR>

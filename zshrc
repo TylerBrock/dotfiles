@@ -29,8 +29,6 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-JIRA_URL="https://jira.mongodb.org"
-
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt correct
@@ -85,6 +83,8 @@ alias gs="git status"
 alias gp="git pull --rebase"
 
 export TERM="xterm-256color"
+
+alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
