@@ -46,6 +46,7 @@ Bundle "tpope/vim-rbenv"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-bundler"
 Bundle "nanotech/jellybeans.vim"
+Bundle "d11wtq/tomorrow-theme-vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
@@ -61,14 +62,14 @@ Bundle 'bling/vim-airline'
 filetype plugin indent on
 
 syntax on
-colorscheme jellybeans
+colorscheme Tomorrow-Night
 
 "NeoComplCache
 "let g:neocomplcache_enable_at_startup = 1
 
 "Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='jellybeans'
+let g:airline_theme='tomorrow'
 
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
