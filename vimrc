@@ -46,6 +46,7 @@ Bundle "tpope/vim-rbenv"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-bundler"
 Bundle "nanotech/jellybeans.vim"
+Bundle "cschlueter/vim-wombat"
 Bundle "d11wtq/tomorrow-theme-vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
@@ -63,6 +64,7 @@ filetype plugin indent on
 
 syntax on
 colorscheme Tomorrow-Night
+"colorscheme wombat
 
 "NeoComplCache
 "let g:neocomplcache_enable_at_startup = 1
