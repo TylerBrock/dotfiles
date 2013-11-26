@@ -33,7 +33,7 @@ unsetopt correct_all
 unsetopt correct
 
 # Code Review
-UPLOAD_PY="~/Code/scratch/python/code_review.py"
+UPLOAD_PY="~/Code/scratch/tools/upload.py"
 CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
@@ -55,7 +55,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenvwrapper)
+plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenv)
 
 # Disable Autocorrect
 alias git lg='nocorrect git lg'

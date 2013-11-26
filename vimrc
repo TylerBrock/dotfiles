@@ -165,6 +165,7 @@ let g:pymode_folding = 0
 let NERDTreeIgnore = ['\.pyc$']
 
 " Syntastic
+let g:syntastic_c_include_dirs=['/usr/local/include/libbson-1.0']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
