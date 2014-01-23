@@ -80,10 +80,12 @@ export MAKE_OPTS="-j8"
 alias mongo="mongo --quiet"
 alias gs="git status"
 alias gp="git pull --rebase"
+alias smoke= '~/Code/buildscripts/smoke.py'
 
 export TERM="xterm-256color"
 
 alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
+alias spawnhost="~/Code/kernel-tools/spawnhost/spawnhost.py"
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
