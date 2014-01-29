@@ -32,6 +32,7 @@ call vundle#rc()
 "Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/syntastic"
+Bundle "scrooloose/nerdcommenter"
 "Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-sensible"
 Bundle "tpope/vim-fugitive"
@@ -65,6 +66,8 @@ filetype plugin indent on
 syntax on
 colorscheme Tomorrow-Night
 "colorscheme wombat
+
+let mapleader=","
 
 "NeoComplCache
 "let g:neocomplcache_enable_at_startup = 1
