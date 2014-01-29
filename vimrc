@@ -33,7 +33,7 @@ call vundle#rc()
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
-"Bundle "jistr/vim-nerdtree-tabs"
+Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-sensible"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-endwise"
@@ -126,12 +126,12 @@ set numberwidth=1
 highlight Directory guifg=#88AAEE
 
 "NerdTree
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeMinimalUI = 1
-"let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 "Tagbar
 "autocmd FileType * nested :call tagbar#autoopen(0)
