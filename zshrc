@@ -86,9 +86,11 @@ export TERM="xterm-256color"
 
 alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
 alias spawnhost="~/Code/kernel-tools/spawnhost/spawnhost.py"
+alias "mongod-2.4"="mongod"
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
