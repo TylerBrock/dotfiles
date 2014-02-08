@@ -150,7 +150,11 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 "GUI Size
 if has("gui_running")
     set lines=50 columns=160
-    set guifont=Inconsolata-dz\ for\ Powerline:h12
+    if has("gui_gtk2")
+        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    elseif has("gui_macvim")
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    endif
 endif
 
 "RSpec
@@ -169,8 +173,27 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Syntastic
 let g:syntastic_c_include_dirs=['/usr/local/include/libbson-1.0']
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_cpp_include_dirs=['/home/tbrock/Code/mongo/src','/home/tbrock/Code/mongo/build/cached']
+"let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_c_checker = "clang"
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_no_include_search = 1
+let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_errorformat =
+            \ '%-G%f:%s:,'.
+            \ '%f:%l:%c: %trror: %m,'.
+            \ '%f:%l:%c: %tarning: %m,'.
+            \ '%I%f:%l:%c: note: %m,'.
+            \ '%f:%l:%c: %m,'.
+            \ '%f:%l: %trror: %m,'.
+            \ '%f:%l: %tarning: %m,'.
+            \ '%I%f:%l: note: %m,'.
+            \ '%f:%l: %m,'.
+            \ '%I%m'
 
 " C++ shit
 autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r.o').' && ./'.shellescape('%:r.o')<CR>
