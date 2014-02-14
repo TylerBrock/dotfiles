@@ -77,7 +77,11 @@ eval "$(rbenv init -)"
 export EDITOR="vim"
 export MAKE_OPTS="-j8"
 
-alias mongo="mongo --quiet"
+MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
+
+alias mongo="/Users/tbrock/Code/mongo/mongo"
+alias mongod="/Users/tbrock/Code/mongo/mongod ${MONGOD_ARGS}"
+alias mongos="/Users/tbrock/Code/mongo/mongos"
 alias gs="git status"
 alias gp="git pull --rebase"
 alias smoke= '~/Code/buildscripts/smoke.py'
@@ -86,7 +90,6 @@ export TERM="xterm-256color"
 
 alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
 alias spawnhost="~/Code/kernel-tools/spawnhost/spawnhost.py"
-alias "mongod-2.4"="mongod"
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
