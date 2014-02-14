@@ -33,7 +33,7 @@ unsetopt correct_all
 unsetopt correct
 
 # Code Review
-UPLOAD_PY="~/Code/scratch/tools/upload.py"
+UPLOAD_PY="~/Code/kernel-tools/codereview/upload.py"
 CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 

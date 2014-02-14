@@ -31,7 +31,7 @@ call vundle#rc()
 
 "Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
-Bundle "scrooloose/syntastic"
+"Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
 Bundle "jistr/vim-nerdtree-tabs"
 Bundle "tpope/vim-sensible"
@@ -53,6 +53,7 @@ Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
 Bundle "Shougo/neocomplcache"
+Bundle "Valloric/YouCompleteMe"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
@@ -66,11 +67,15 @@ filetype plugin indent on
 syntax on
 colorscheme Tomorrow-Night
 "colorscheme wombat
+"colorscheme jellybeans
 
 let mapleader=","
 
+"YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+
 "NeoComplCache
-"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 
 "Airline
 let g:airline_powerline_fonts = 1
