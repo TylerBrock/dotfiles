@@ -70,12 +70,14 @@ colorscheme Tomorrow-Night
 "colorscheme wombat
 "colorscheme jellybeans
 "colorscheme solarized
-set background=dark
 
 let mapleader=","
 
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 
 "NeoComplCache
 let g:neocomplcache_enable_at_startup = 1
