@@ -29,18 +29,28 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+# Determine platform
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+    bins='/usr/bin'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='macosx'
+    bins='/usr/local/bin'
+fi
+
 unsetopt correct_all
 unsetopt correct
 
 # Code Review
-UPLOAD_PY="~/Code/kernel-tools/codereview/upload.py"
+UPLOAD_PY="${HOME}/Code/kernel-tools/codereview/upload.py"
 CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_DISTRIBUTE=true
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
@@ -48,14 +58,14 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+if [[ -r ${bins}/virtualenvwrapper.sh ]]; then
+    source ${bins}/virtualenvwrapper.sh
 fi
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenv)
+plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime virtualenv zsh-syntax-highlighting)
 
 # Disable Autocorrect
 alias git lg='nocorrect git lg'
@@ -72,28 +82,28 @@ export AWS_DEFAULT_REGION=us-east-1
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 
 # rbenv
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 export EDITOR="vim"
 export MAKE_OPTS="-j8"
 
 MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
+alias mongo="${HOME}/Code/mongo/mongo"
+alias mongod="${HOME}/Code/mongo/mongod ${MONGOD_ARGS}"
+alias mongos="${HOME}/Code/mongo/mongos"
+alias smoke="${HOME}/Code/buildscripts/smoke.py"
 
-alias mongo="/Users/tbrock/Code/mongo/mongo"
-alias mongod="/Users/tbrock/Code/mongo/mongod ${MONGOD_ARGS}"
-alias mongos="/Users/tbrock/Code/mongo/mongos"
 alias gs="git status"
 alias gp="git pull --rebase"
-alias smoke= '~/Code/buildscripts/smoke.py'
+
+alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
+alias spawnhost="${HOME}/Code/kernel-tools/spawnhost/spawnhost.py"
 
 export TERM="xterm-256color"
 
-alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
-alias spawnhost="~/Code/kernel-tools/spawnhost/spawnhost.py"
-
 # syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
