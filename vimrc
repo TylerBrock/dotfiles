@@ -60,7 +60,8 @@ Bundle "klen/python-mode"
 "Bundle "skwp/vim-rspec"
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
-Bundle 'bling/vim-airline'
+Bundle "bling/vim-airline"
+Bundle "altercation/vim-colors-solarized.git"
 
 filetype plugin indent on
 
@@ -68,6 +69,8 @@ syntax on
 colorscheme Tomorrow-Night
 "colorscheme wombat
 "colorscheme jellybeans
+"colorscheme solarized
+set background=dark
 
 let mapleader=","
 
@@ -80,6 +83,7 @@ let g:neocomplcache_enable_at_startup = 1
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
+"let g:airline_theme='solarized'
 
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
@@ -158,7 +162,7 @@ if has("gui_running")
     if has("gui_gtk2")
         set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
     elseif has("gui_macvim")
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+        set guifont=Inconsolata\-DZ\ for\ Powerline:h12
     endif
 endif
 
