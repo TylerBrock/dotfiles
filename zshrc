@@ -29,13 +29,10 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-# Determine platform
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-    platform='linux'
+# Determine platform bins
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
     bins='/usr/bin'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-    platform='macosx'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
     bins='/usr/local/bin'
 fi
 
