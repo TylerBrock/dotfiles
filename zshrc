@@ -44,10 +44,13 @@ UPLOAD_PY="${HOME}/Code/kernel-tools/codereview/upload.py"
 CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_DISTRIBUTE=true
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+export VIRTUALENVWRAPPER_PYTHON=${bins}/python2.7
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
@@ -67,16 +70,14 @@ plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime vir
 # Disable Autocorrect
 alias git lg='nocorrect git lg'
 
-# Deploy
-API_DEPLOY_EAST="ssh 10gen-east \"ops/systems/apache/www-c/deploy api master\""
-API_DEPLOY_WEST="ssh 10gen-west \"ops/systems/apache/www-c/deploy api master\""
-alias deploy-api-docs="$API_DEPLOY_EAST && $API_DEPLOY_WEST"
+# Deploy xgen docs
+DEPLOY_CMD="ops/systems/apache/www-c/deploy api master"
+API_DEPLOY_EAST="ssh 10gen-east ${DEPLOY_CMD}"
+API_DEPLOY_WEST="ssh 10gen-west ${DEPLOY_CMD}"
+alias deploy-api-docs="${API_DEPLOY_EAST} && ${API_DEPLOY_WEST}"
 
 # AWS
 export AWS_DEFAULT_REGION=us-east-1
-
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 
 # rbenv
 #eval "$(rbenv init -)"
