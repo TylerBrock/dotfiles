@@ -34,6 +34,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     bins='/usr/bin'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     bins='/usr/local/bin'
+    DISABLE_AUTO_TITLE="true"
 fi
 
 unsetopt correct_all

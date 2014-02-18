@@ -52,7 +52,7 @@ Bundle "d11wtq/tomorrow-theme-vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
 Bundle "airblade/vim-gitgutter"
-Bundle "Shougo/neocomplcache"
+"Bundle "Shougo/neocomplcache"
 Bundle "Valloric/YouCompleteMe"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
@@ -61,7 +61,8 @@ Bundle "klen/python-mode"
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
 Bundle "bling/vim-airline"
-Bundle "altercation/vim-colors-solarized.git"
+Bundle "altercation/vim-colors-solarized"
+Bundle "jalcine/cmake.vim"
 
 filetype plugin indent on
 
@@ -72,6 +73,12 @@ colorscheme Tomorrow-Night
 "colorscheme solarized
 
 let mapleader=","
+
+"CMake
+let g:cmake_build_dirs = [ "build" ]
+nmap <Leader>b :CMakeBuild<CR>
+nmap <Leader>t :CMakeTarget test<CR>
+nmap <Leader>c :CMakeCreateBuild build<CR>
 
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
@@ -86,19 +93,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 "let g:airline_theme='solarized'
-
-" Save your backups to a less annoying place than the current directory.
-" If you have .vim-backup in the current directory, it'll use that.
-" Otherwise it saves it to ~/.vim/backup or . if all else fails.
-if isdirectory($HOME . '/.vim/backup') == 0
-  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
-endif
-set backupdir-=.
-set backupdir+=.
-set backupdir-=~/
-set backupdir^=~/.vim/backup/
-set backupdir^=./.vim-backup/
-set backup
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
