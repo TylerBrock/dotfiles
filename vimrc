@@ -51,15 +51,17 @@ Bundle "cschlueter/vim-wombat"
 Bundle "d11wtq/tomorrow-theme-vim"
 Bundle "kien/ctrlp.vim"
 Bundle "majutsushi/tagbar"
-Bundle "airblade/vim-gitgutter"
+"Bundle "airblade/vim-gitgutter"
 "Bundle "Shougo/neocomplcache"
 Bundle "Valloric/YouCompleteMe"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
 Bundle "klen/python-mode"
 "Bundle "skwp/vim-rspec"
+Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
+Bundle "vim-scripts/scons.vim"
 Bundle "bling/vim-airline"
 Bundle "altercation/vim-colors-solarized"
 Bundle "jalcine/cmake.vim"
@@ -67,12 +69,31 @@ Bundle "jalcine/cmake.vim"
 filetype plugin indent on
 
 syntax on
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 "colorscheme wombat
 "colorscheme jellybeans
-"colorscheme solarized
 
 let mapleader=","
+set cmdheight=2
+
+"GUI / Non-GUI settings
+if has("gui_running")
+    colorscheme solarized
+    set background=dark
+    highlight Directory guifg=#88AAEE
+    highlight SignColumn ctermbg=8
+    highlight clear SignColumn
+    "autocmd ColorScheme * highlight clear SignColumn
+    set lines=50 columns=160
+
+    if has("gui_gtk2")
+        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    elseif has("gui_macvim")
+        set guifont=Inconsolata\-DZ\ for\ Powerline:h12
+    endif
+else
+    colorscheme Tomorrow-Night
+endif
 
 "CMake
 let g:cmake_build_dirs = [ "build" ]
@@ -85,9 +106,12 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_enable_diagnostic_signs = 1
 
 "NeoComplCache
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
 
 "Airline
 let g:airline_powerline_fonts = 1
@@ -122,13 +146,12 @@ if exists("+undofile")
 endif
 
 "GitGutter
-let g:gitgutter_sign_column_always = 1
+"let g:gitgutter_sign_column_always = 1
 let g:gitgutter_escape_grep = 1
-highlight clear SignColumn
+"highlight clear SignColumn
+"highlight SignColumn guibg=DarkGreen
+"highlight SignColumn ctermbg=DarkGreen
 set numberwidth=1
-
-"Bluedirs
-highlight Directory guifg=#88AAEE
 
 "NerdTree
 "autocmd vimenter * if !argc() | NERDTree | endif
@@ -151,16 +174,6 @@ set guioptions-=rL
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-
-"GUI Size
-if has("gui_running")
-    set lines=50 columns=160
-    if has("gui_gtk2")
-        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
-    elseif has("gui_macvim")
-        set guifont=Inconsolata\-DZ\ for\ Powerline:h12
-    endif
-endif
 
 "RSpec
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
@@ -200,15 +213,19 @@ let g:syntastic_cpp_errorformat =
             \ '%f:%l: %m,'.
             \ '%I%m'
 
-" C++ shit
-autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r.o').' && ./'.shellescape('%:r.o')<CR>
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++-4.9 -std=c++11 '.shellescape('%').' -o '.shellescape('%:r.o').' && ./'.shellescape('%:r.o')<CR>
 
 "Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" Scons
+au BufNewFile,BufRead SCons* set filetype=scons
+
+" C++
+command! SconsTest execute "!scons -j8 --use-system-boost test"
+nnoremap <leader>t :SconsTest<CR>
 
 " Javascript Frameworks
 let g:used_javascript_libs = 'angularjs,underscore,backbone'
