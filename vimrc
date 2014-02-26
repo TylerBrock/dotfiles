@@ -22,7 +22,6 @@ set showmode
 set history=1000
 set encoding=utf-8
 set ttyfast
-set ambiwidth=double
 
 "Vundle
 filetype off

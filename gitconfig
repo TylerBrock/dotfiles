@@ -8,3 +8,5 @@
 	email = tyler.brock@gmail.com
 [push]
 	default = simple
+[core]
+	excludesfile = /Users/tbrock/.gitignore_global
