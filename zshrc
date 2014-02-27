@@ -46,7 +46,7 @@ CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:${HOME}/Code/mongo
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
@@ -87,9 +87,7 @@ export EDITOR="vim"
 export MAKE_OPTS="-j8"
 
 MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
-alias mongo="${HOME}/Code/mongo/mongo"
-alias mongod="${HOME}/Code/mongo/mongod ${MONGOD_ARGS}"
-alias mongos="${HOME}/Code/mongo/mongos"
+alias mongod="mongod ${MONGOD_ARGS}"
 alias smoke="${HOME}/Code/buildscripts/smoke.py"
 
 alias gs="git status"
@@ -106,3 +104,6 @@ export TERM="xterm-256color"
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

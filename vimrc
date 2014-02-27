@@ -186,6 +186,8 @@ let g:rspec_command = "Dispatch rspec {spec}"
 "Python
 let g:pymode_virtualenv = 1
 let g:pymode_folding = 0
+let g:pymode_rope_guess_project = 0
+let g:pymode_rope_lookup_project = 0
 let NERDTreeIgnore = ['\.pyc$']
 
 " Syntastic
