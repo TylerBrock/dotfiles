@@ -94,7 +94,6 @@ alias gs="git status"
 alias gp="git pull --rebase"
 
 alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
-alias spawnhost="${HOME}/Code/kernel-tools/spawnhost/spawnhost.py"
 
 export TERM="xterm-256color"
 

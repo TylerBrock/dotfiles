@@ -109,6 +109,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_enable_diagnostic_signs = 1
 
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 "NeoComplCache
 "let g:neocomplcache_enable_at_startup = 1
 
