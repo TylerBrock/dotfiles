@@ -100,9 +100,19 @@ export TERM="xterm-256color"
 # syntax highlighting
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+## COLOR Man pages and other stuff
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'

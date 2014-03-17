@@ -74,6 +74,11 @@ syntax on
 
 let mapleader=","
 set cmdheight=2
+set clipboard=unnamed
+set mouse=a
+setlocal spell spelllang=en_us
+set mousemodel=popup
+set spell
 
 "GUI / Non-GUI settings
 if has("gui_running")
@@ -103,11 +108,10 @@ nmap <Leader>c :CMakeCreateBuild build<CR>
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
