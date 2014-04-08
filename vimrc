@@ -76,9 +76,9 @@ let mapleader=","
 set cmdheight=2
 set clipboard=unnamed
 set mouse=a
-setlocal spell spelllang=en_us
+"setlocal spell spelllang=en_us
 set mousemodel=popup
-set spell
+"set spell
 
 "GUI / Non-GUI settings
 if has("gui_running")
@@ -193,6 +193,7 @@ let g:rspec_command = "Dispatch rspec {spec}"
 let g:pymode_virtualenv = 1
 let g:pymode_folding = 0
 let g:pymode_rope_guess_project = 0
+let g:pymode_rope_auto_project = 0
 let g:pymode_rope_lookup_project = 0
 let NERDTreeIgnore = ['\.pyc$']
 

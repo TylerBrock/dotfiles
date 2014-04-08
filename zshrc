@@ -71,6 +71,9 @@ plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime vir
 # Disable Autocorrect
 alias git lg='nocorrect git lg'
 
+# ColorGCC
+export PATH="/usr/lib/colorgcc/bin:$PATH"
+
 # Deploy xgen docs
 DEPLOY_CMD="ops/systems/apache/www-c/deploy api master"
 API_DEPLOY_EAST="ssh 10gen-east ${DEPLOY_CMD}"
@@ -86,8 +89,8 @@ export AWS_DEFAULT_REGION=us-east-1
 export EDITOR="vim"
 export MAKE_OPTS="-j8"
 
-MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
-alias mongod="mongod ${MONGOD_ARGS}"
+#MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
+#alias mongod="mongod ${MONGOD_ARGS}"
 alias smoke="${HOME}/Code/buildscripts/smoke.py"
 
 alias gs="git status"
