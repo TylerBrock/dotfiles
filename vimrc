@@ -63,7 +63,8 @@ Bundle "vim-scripts/a.vim"
 Bundle "vim-scripts/scons.vim"
 Bundle "bling/vim-airline"
 Bundle "altercation/vim-colors-solarized"
-Bundle "jalcine/cmake.vim"
+Bundle "rking/ag.vim"
+"Bundle "jalcine/cmake.vim"
 
 filetype plugin indent on
 
@@ -108,10 +109,11 @@ nmap <Leader>c :CMakeCreateBuild build<CR>
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
