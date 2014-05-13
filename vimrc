@@ -25,10 +25,10 @@ set ttyfast
 
 "Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-"Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 Bundle "scrooloose/nerdtree"
 "Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
@@ -39,7 +39,6 @@ Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-haml"
-Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-rake"
 Bundle "tpope/vim-rbenv"
@@ -66,6 +65,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "rking/ag.vim"
 "Bundle "jalcine/cmake.vim"
 
+call vundle#end()
 filetype plugin indent on
 
 syntax on
