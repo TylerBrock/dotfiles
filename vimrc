@@ -54,7 +54,7 @@ Bundle "majutsushi/tagbar"
 Bundle "Valloric/YouCompleteMe"
 Bundle "lepture/vim-jinja"
 Bundle "wting/rust.vim"
-Bundle "klen/python-mode"
+"Bundle "klen/python-mode"
 "Bundle "skwp/vim-rspec"
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle "othree/javascript-libraries-syntax.vim"
@@ -64,6 +64,7 @@ Bundle "bling/vim-airline"
 Bundle "altercation/vim-colors-solarized"
 Bundle "rking/ag.vim"
 "Bundle "jalcine/cmake.vim"
+Bundle "Raimondi/delimitMate"
 
 call vundle#end()
 filetype plugin indent on
@@ -165,6 +166,7 @@ set numberwidth=1
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <Leader>m :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
