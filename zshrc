@@ -111,6 +111,9 @@ source $ZSH/oh-my-zsh.sh
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+### Gempath
+export PATH="/home/tbrock/.gem/ruby/2.1.0/bin:$PATH"
+
 ## COLOR Man pages and other stuff
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
