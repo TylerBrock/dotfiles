@@ -241,3 +241,6 @@ nnoremap <leader>t :SconsTest<CR>
 
 " Javascript Frameworks
 let g:used_javascript_libs = 'angularjs,underscore,backbone'
+
+" No highlight
+nmap <silent> <leader>/ :set invhlsearch<CR>
