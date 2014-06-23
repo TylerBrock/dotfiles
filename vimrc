@@ -3,7 +3,7 @@ set nocompatible
 set linespace=0
 set backspace=indent,eol,start
 set nu
-set showmatch
+"set showmatch
 set incsearch
 set hlsearch
 set ignorecase
@@ -57,14 +57,15 @@ Bundle "wting/rust.vim"
 "Bundle "klen/python-mode"
 "Bundle "skwp/vim-rspec"
 Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle "othree/javascript-libraries-syntax.vim"
+"Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "vim-scripts/a.vim"
-Bundle "vim-scripts/scons.vim"
+"Bundle "vim-scripts/scons.vim"
 Bundle "bling/vim-airline"
 Bundle "altercation/vim-colors-solarized"
 Bundle "rking/ag.vim"
 "Bundle "jalcine/cmake.vim"
 Bundle "Raimondi/delimitMate"
+Bundle "SirVer/ultisnips"
 
 call vundle#end()
 filetype plugin indent on
@@ -107,6 +108,10 @@ nmap <Leader>b :CMakeBuild<CR>
 nmap <Leader>t :CMakeTarget test<CR>
 nmap <Leader>c :CMakeCreateBuild build<CR>
 
+"UltiSnips
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetsDir = "~/.ultisnips"
+
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
@@ -114,7 +119,7 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_select_completion = ['<ENTER>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -124,6 +129,7 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
+let g:airline#extensions#whitespace#enabled=0
 "let g:airline_theme='solarized'
 
 " Save your swp files to a less annoying place than the current directory.
