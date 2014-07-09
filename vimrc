@@ -119,7 +119,7 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_key_list_select_completion = ['<ENTER>']
+let g:ycm_key_list_select_completion = ['<tab>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
