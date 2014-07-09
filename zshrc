@@ -51,7 +51,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_DISTRIBUTE=true
-export VIRTUALENVWRAPPER_PYTHON=${bins}/python2.7
+export VIRTUALENVWRAPPER_PYTHON="${bins}/python2.7"
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
