@@ -1,4 +1,47 @@
+"Vundle
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'd11wtq/tomorrow-theme-vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'cschlueter/vim-wombat'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'skwp/vim-rspec'
+Plugin 'vim-scripts/a.vim'
+Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+"Plugin 'vim-scripts/scons.vim'
+"Plugin 'jalcine/cmake.vim'
+"Plugin 'lepture/vim-jinja'
+"Plugin 'wting/rust.vim'
+"Plugin 'klen/python-mode'
+
+call vundle#end()
+filetype plugin indent on
 
 set linespace=0
 set backspace=indent,eol,start
@@ -22,53 +65,6 @@ set showmode
 set history=1000
 set encoding=utf-8
 set ttyfast
-
-"Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Bundle 'gmarik/vundle'
-Bundle "scrooloose/nerdtree"
-"Bundle "scrooloose/syntastic"
-Bundle "scrooloose/nerdcommenter"
-Bundle "jistr/vim-nerdtree-tabs"
-Bundle "tpope/vim-sensible"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-endwise"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-cucumber"
-Bundle "tpope/vim-haml"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-rake"
-Bundle "tpope/vim-rbenv"
-Bundle "tpope/vim-rails"
-Bundle "tpope/vim-bundler"
-Bundle "nanotech/jellybeans.vim"
-Bundle "cschlueter/vim-wombat"
-Bundle "d11wtq/tomorrow-theme-vim"
-Bundle "kien/ctrlp.vim"
-Bundle "majutsushi/tagbar"
-"Bundle "airblade/vim-gitgutter"
-"Bundle "Shougo/neocomplcache"
-Bundle "Valloric/YouCompleteMe"
-Bundle "lepture/vim-jinja"
-Bundle "wting/rust.vim"
-"Bundle "klen/python-mode"
-"Bundle "skwp/vim-rspec"
-Bundle 'octol/vim-cpp-enhanced-highlight'
-"Bundle "othree/javascript-libraries-syntax.vim"
-Bundle "vim-scripts/a.vim"
-"Bundle "vim-scripts/scons.vim"
-Bundle "bling/vim-airline"
-Bundle "altercation/vim-colors-solarized"
-Bundle "rking/ag.vim"
-"Bundle "jalcine/cmake.vim"
-Bundle "Raimondi/delimitMate"
-Bundle "SirVer/ultisnips"
-
-call vundle#end()
-filetype plugin indent on
 
 syntax on
 "colorscheme Tomorrow-Night
@@ -109,8 +105,10 @@ nmap <Leader>t :CMakeTarget test<CR>
 nmap <Leader>c :CMakeCreateBuild build<CR>
 
 "UltiSnips
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsSnippetsDir = "~/.ultisnips"
 
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
