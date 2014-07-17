@@ -113,10 +113,10 @@ let g:UltiSnipsEditSplit = "vertical"
 "YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_key_list_select_completion = ['<tab>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -158,9 +158,10 @@ if exists("+undofile")
 endif
 
 "GitGutter
-"let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_column_always = 1
 let g:gitgutter_escape_grep = 1
-"highlight clear SignColumn
+let g:gitgutter_realtime = 1
+highlight clear SignColumn
 "highlight SignColumn guibg=DarkGreen
 "highlight SignColumn ctermbg=DarkGreen
 set numberwidth=1
