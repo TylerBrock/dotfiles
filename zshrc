@@ -87,7 +87,7 @@ export AWS_DEFAULT_REGION=us-east-1
 #eval "$(rbenv init -)"
 
 export EDITOR="vim"
-export MAKE_OPTS="-j8"
+export MAKEFLAGS="-j$(nproc)"
 
 #MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
 #alias mongod="mongod ${MONGOD_ARGS}"
