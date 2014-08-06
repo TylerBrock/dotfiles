@@ -31,8 +31,10 @@ COMPLETION_WAITING_DOTS="true"
 
 # Determine platform bins
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    N_CPUS="$(nproc)"
     bins='/usr/bin'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    N_CPUS="$(sysctl -n hw.ncpu)"
     bins='/usr/local/bin'
     DISABLE_AUTO_TITLE="true"
 fi
@@ -87,7 +89,7 @@ export AWS_DEFAULT_REGION=us-east-1
 #eval "$(rbenv init -)"
 
 export EDITOR="vim"
-export MAKEFLAGS="-j$(nproc)"
+export MAKEFLAGS="-j${N_CPUS}"
 
 #MONGOD_ARGS="--smallfiles --noprealloc --nojournal --jsonp"
 #alias mongod="mongod ${MONGOD_ARGS}"
