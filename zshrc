@@ -31,10 +31,10 @@ COMPLETION_WAITING_DOTS="true"
 
 # Determine platform bins
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    N_CPUS="$(nproc)"
+    N_CPUS="$(/usr/bin/nproc)"
     bins='/usr/bin'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    N_CPUS="$(sysctl -n hw.ncpu)"
+    N_CPUS="$(/usr/sbin/sysctl -n hw.ncpu)"
     bins='/usr/local/bin'
     DISABLE_AUTO_TITLE="true"
 fi
