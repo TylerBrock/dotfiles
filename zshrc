@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="afowler"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -65,6 +65,9 @@ if [[ -r ${bins}/virtualenvwrapper.sh ]]; then
     source ${bins}/virtualenvwrapper.sh
 fi
 
+# PKG-CONFIG
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -105,7 +108,8 @@ export TERM="xterm-256color"
 # syntax highlighting
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+#export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh

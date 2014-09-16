@@ -91,7 +91,8 @@ if has("gui_running")
         set guifont=Inconsolata\-DZ\ for\ Powerline:h12
     endif
 else
-    colorscheme Tomorrow-Night
+    colorscheme jellybeans
+    set background=dark
 endif
 
 "CMake
@@ -245,3 +246,7 @@ let g:used_javascript_libs = 'angularjs,underscore,backbone'
 
 " No highlight
 nmap <silent> <leader>/ :set invhlsearch<CR>
+
+
+map <C-K> :pyf /usr/share/clang/clang-format.py<CR>
+imap <C-K> <ESC>:pyf /clang-format.py<CR>i
