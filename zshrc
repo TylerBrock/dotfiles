@@ -47,8 +47,13 @@ UPLOAD_PY="${HOME}/Code/kernel-tools/codereview/upload.py"
 CR_SERVER="codereview.10gen.com"
 alias cr="python $UPLOAD_PY -y -s $CR_SERVER -m"
 
+alias gdb="gdb -q"
+
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:${HOME}/Code/mongo
+
+# Terminal for i3
+export TERMINAL=gnome-terminal
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
@@ -77,7 +82,7 @@ plugins=(git rbenv ruby jruby gem rake python node fabric rsync jira sublime vir
 alias git lg='nocorrect git lg'
 
 # ColorGCC
-export PATH="/usr/lib/colorgcc/bin:$PATH"
+#export PATH="/usr/lib/colorgcc/bin:$PATH"
 
 # Deploy xgen docs
 DEPLOY_CMD="ops/systems/apache/www-c/deploy api master"
@@ -98,9 +103,14 @@ export MAKEFLAGS="-j${N_CPUS}"
 #alias mongod="mongod ${MONGOD_ARGS}"
 alias smoke="${HOME}/Code/buildscripts/smoke.py"
 
+# Some git shit
 alias gs="git status"
-alias gp="git pull --rebase"
+alias gp="git push"
+alias gl="git lg"
+alias gpr="git pull --rebase"
+alias gpf="git push --force"
 
+# CTags
 alias gentags="ctags -R --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p --sort=foldcase"
 
 export TERM="xterm-256color"

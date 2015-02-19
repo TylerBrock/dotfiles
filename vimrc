@@ -1,6 +1,5 @@
 "Vim-Plug
 call plug#begin('~/.vim/plugged')
-Plug 'gmarik/vundle'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -18,22 +17,21 @@ Plug 'tpope/vim-bundler'
 Plug 'd11wtq/tomorrow-theme-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cschlueter/vim-wombat'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'Valloric/YouCompleteMe'
-Plug 'skwp/vim-rspec'
-Plug 'vim-scripts/a.vim'
+Plug 'skwp/vim-rspec', { 'for': 'ruby' }
+Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 "Plug 'bling/vim-airline'
 Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/scons.vim'
 "Plug 'jalcine/cmake.vim'
-"Plug 'lepture/vim-jinja'
-"Plug 'wting/rust.vim'
+Plug 'lepture/vim-jinja'
 call plug#end()
 
 set nocompatible
@@ -63,7 +61,7 @@ set encoding=utf-8
 set ttyfast
 
 syntax on
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "colorscheme wombat
 "colorscheme jellybeans
 
@@ -77,13 +75,16 @@ set mousemodel=popup
 
 "GUI / Non-GUI settings
 if has("gui_running")
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme Tomorrow-Night
     set background=dark
     highlight Directory guifg=#88AAEE
     highlight SignColumn ctermbg=8
     highlight clear SignColumn
     "autocmd ColorScheme * highlight clear SignColumn
     set lines=50 columns=160
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
 
     if has("gui_gtk2")
         set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
@@ -91,7 +92,7 @@ if has("gui_running")
         set guifont=Inconsolata\-DZ\ for\ Powerline:h12
     endif
 else
-    colorscheme jellybeans
+    "colorscheme Tomorrow-Night
     set background=dark
 endif
 
@@ -111,8 +112,10 @@ let g:UltiSnipsEditSplit = "vertical"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_key_list_select_completion = ['<tab>']
 
@@ -234,6 +237,9 @@ nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
+"Ctrl-p
+let g:ctrlp_custom_ignore = 'build\|DS_Store\|git\|docs'
+
 " Scons
 au BufNewFile,BufRead SCons* set filetype=scons
 
@@ -246,7 +252,6 @@ let g:used_javascript_libs = 'angularjs,underscore,backbone'
 
 " No highlight
 nmap <silent> <leader>/ :set invhlsearch<CR>
-
 
 map <C-K> :pyf /usr/share/clang/clang-format.py<CR>
 imap <C-K> <ESC>:pyf /clang-format.py<CR>i
