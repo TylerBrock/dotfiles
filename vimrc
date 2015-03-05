@@ -28,7 +28,7 @@ Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 "Plug 'bling/vim-airline'
 Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/scons.vim'
 "Plug 'jalcine/cmake.vim'
 Plug 'lepture/vim-jinja'
@@ -66,7 +66,7 @@ colorscheme Tomorrow-Night
 "colorscheme jellybeans
 
 let mapleader=","
-set cmdheight=2
+"set cmdheight=2
 set clipboard=unnamed
 set mouse=a
 "setlocal spell spelllang=en_us
@@ -75,7 +75,6 @@ set mousemodel=popup
 
 "GUI / Non-GUI settings
 if has("gui_running")
-    "colorscheme solarized
     colorscheme Tomorrow-Night
     set background=dark
     highlight Directory guifg=#88AAEE
