@@ -1,37 +1,22 @@
 "Vim-Plug
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-rbenv'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-bundler'
+Plug 'scrooloose/nerdcommenter'
 Plug 'd11wtq/tomorrow-theme-vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
 Plug 'altercation/vim-colors-solarized'
-Plug 'cschlueter/vim-wombat'
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe'
-Plug 'skwp/vim-rspec', { 'for': 'ruby' }
+Plug 'marijnh/tern_for_vim'
 Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
-"Plug 'bling/vim-airline'
 Plug 'rking/ag.vim'
-Plug 'Raimondi/delimitMate'
-"Plug 'SirVer/ultisnips'
-Plug 'vim-scripts/scons.vim'
-"Plug 'jalcine/cmake.vim'
-Plug 'lepture/vim-jinja'
 call plug#end()
 
 set nocompatible
@@ -40,7 +25,7 @@ filetype plugin indent on
 set linespace=0
 set backspace=indent,eol,start
 set nu
-"set showmatch
+set showmatch
 set incsearch
 set hlsearch
 set ignorecase
@@ -56,9 +41,11 @@ set smartindent
 set autoindent
 set copyindent
 set showmode
-set history=1000
+set laststatus=2
+set history=10000
 set encoding=utf-8
 set ttyfast
+set t_Co=256
 
 syntax on
 colorscheme Tomorrow-Night
@@ -66,16 +53,15 @@ colorscheme Tomorrow-Night
 "colorscheme jellybeans
 
 let mapleader=","
-"set cmdheight=2
 set clipboard=unnamed
 set mouse=a
-"setlocal spell spelllang=en_us
+setlocal spell spelllang=en_us
 set mousemodel=popup
 "set spell
 
 "GUI / Non-GUI settings
 if has("gui_running")
-    colorscheme Tomorrow-Night
+    colorscheme solarized
     set background=dark
     highlight Directory guifg=#88AAEE
     highlight SignColumn ctermbg=8
@@ -95,39 +81,21 @@ else
     set background=dark
 endif
 
-"CMake
-let g:cmake_build_dirs = [ "build" ]
-nmap <Leader>b :CMakeBuild<CR>
-nmap <Leader>t :CMakeTarget test<CR>
-nmap <Leader>c :CMakeCreateBuild build<CR>
-
-"UltiSnips
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit = "vertical"
-
-"YouCompleteMe
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_key_list_select_completion = ['<tab>']
-
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"NeoComplCache
-"let g:neocomplcache_enable_at_startup = 1
-
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 let g:airline#extensions#whitespace#enabled=0
 "let g:airline_theme='solarized'
+
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
@@ -173,6 +141,7 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map <Leader>m :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_focus_on_files = 1
 
 "Tagbar
 "autocmd FileType * nested :call tagbar#autoopen(0)
@@ -188,48 +157,6 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
-"RSpec
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-highlight def link rubyRspec Function
-let g:rspec_command = "Dispatch rspec {spec}"
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
-
-"Python
-let g:pymode_virtualenv = 1
-let g:pymode_folding = 0
-let g:pymode_rope_guess_project = 0
-let g:pymode_rope_auto_project = 0
-let g:pymode_rope_lookup_project = 0
-let NERDTreeIgnore = ['\.pyc$']
-
-" Syntastic
-let g:syntastic_c_include_dirs=['/usr/local/include/libbson-1.0']
-let g:syntastic_cpp_include_dirs=['/home/tbrock/Code/mongo/src','/home/tbrock/Code/mongo/build/cached']
-"let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_c_checker = "clang"
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_c_no_include_search = 1
-let g:syntastic_cpp_no_include_search = 1
-let g:syntastic_cpp_errorformat =
-            \ '%-G%f:%s:,'.
-            \ '%f:%l:%c: %trror: %m,'.
-            \ '%f:%l:%c: %tarning: %m,'.
-            \ '%I%f:%l:%c: note: %m,'.
-            \ '%f:%l:%c: %m,'.
-            \ '%f:%l: %trror: %m,'.
-            \ '%f:%l: %tarning: %m,'.
-            \ '%I%f:%l: note: %m,'.
-            \ '%f:%l: %m,'.
-            \ '%I%m'
-
-
 "Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
@@ -239,18 +166,5 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 "Ctrl-p
 let g:ctrlp_custom_ignore = 'build\|DS_Store\|git\|docs'
 
-" Scons
-au BufNewFile,BufRead SCons* set filetype=scons
-
-" C++
-command! SconsTest execute "!scons -j8 --use-system-boost test"
-nnoremap <leader>t :SconsTest<CR>
-
-" Javascript Frameworks
-let g:used_javascript_libs = 'angularjs,underscore,backbone'
-
 " No highlight
 nmap <silent> <leader>/ :set invhlsearch<CR>
-
-map <C-K> :pyf /usr/share/clang/clang-format.py<CR>
-imap <C-K> <ESC>:pyf /clang-format.py<CR>i
