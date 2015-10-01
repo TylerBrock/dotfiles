@@ -9,6 +9,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
+Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
@@ -17,6 +18,11 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
 Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 Plug 'rking/ag.vim'
+Plug 'fatih/vim-go', { 'for': ['go'] }
+Plug 'mxw/vim-jsx'
+Plug 'jdkanani/vim-material-theme'
+Plug 'justbrettjones/vim-swigjs'
+Plug 'gilgigilgil/anderson.vim'
 call plug#end()
 
 set nocompatible
@@ -31,7 +37,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set list
-set listchars=tab:,.,trail:.,extends:#,nbsp:.
+set listchars=tab:\ \ ,trail:.,extends:#,nbsp:.
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -48,6 +54,7 @@ set ttyfast
 set t_Co=256
 
 syntax on
+"colorscheme anderson
 colorscheme Tomorrow-Night
 "colorscheme wombat
 "colorscheme jellybeans
@@ -55,13 +62,14 @@ colorscheme Tomorrow-Night
 let mapleader=","
 set clipboard=unnamed
 set mouse=a
-setlocal spell spelllang=en_us
+"setlocal spell spelllang=en_us
 set mousemodel=popup
 "set spell
 
 "GUI / Non-GUI settings
 if has("gui_running")
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme anderson
     set background=dark
     highlight Directory guifg=#88AAEE
     highlight SignColumn ctermbg=8
@@ -96,6 +104,7 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
@@ -134,8 +143,6 @@ highlight clear SignColumn
 set numberwidth=1
 
 "NerdTree
-"autocmd vimenter * if !argc() | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map <Leader>m :NERDTreeFind<CR>
@@ -144,7 +151,6 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_focus_on_files = 1
 
 "Tagbar
-"autocmd FileType * nested :call tagbar#autoopen(0)
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
 let g:tagbar_compact = 1
@@ -164,7 +170,7 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 "Ctrl-p
-let g:ctrlp_custom_ignore = 'build\|DS_Store\|git\|docs'
+let g:ctrlp_custom_ignore = 'build\|DS_Store\|git\|docs\|node_modules'
 
 " No highlight
 nmap <silent> <leader>/ :set invhlsearch<CR>
