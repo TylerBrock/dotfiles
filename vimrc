@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 call plug#end()
 
@@ -41,7 +42,26 @@ set ttyfast
 set t_Co=256
 set background=dark
 
-colorscheme Tomorrow-Night
+"GUI / Non-GUI settings
+if has("gui_running")
+    colorscheme nova
+    highlight Directory guifg=#88AAEE
+    highlight SignColumn ctermbg=8
+    highlight clear SignColumn
+    "autocmd ColorScheme * highlight clear SignColumn
+    set lines=50 columns=160
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+
+    if has("gui_gtk2")
+        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    elseif has("gui_macvim")
+        set guifont=Inconsolata\-DZ\ for\ Powerline:h12
+    endif
+else
+    colorscheme Tomorrow-Night
+    set background=dark
+endif
 
 "Lightline
 let g:lightline = { 'colorscheme': 'jellybeans' }
