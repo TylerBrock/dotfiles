@@ -11,6 +11,7 @@ Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'trevordmiller/nova-vim'
+Plug 'hashivim/vim-terraform'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 call plug#end()
 
