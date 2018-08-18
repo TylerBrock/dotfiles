@@ -1,1 +1,0 @@
-slaves = ec2-user@jsl1.bci.10gen.cc ec2-user@jsl2.bci.10gen.cc ec2-user@jsl3.bci.10gen.cc ec2-user@jsl6.bci.10gen.cc ec2-user@jsl5.bci.10gen.cc ec2-user@jsl6.bci.10gen.cc ec2-user@jsl7.bci.10gen.cc ec2-user@jsl8.bci.10gen.cc
