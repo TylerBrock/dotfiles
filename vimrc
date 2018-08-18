@@ -2,14 +2,26 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
+"Install vim-plug if not intalled
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript', { 'for': 'js' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'trevordmiller/nova-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
@@ -53,9 +65,11 @@ if has("gui_running")
     set lines=50 columns=160
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
+    set guioptions-=L  "remove scrollbar
 
-    if has("gui_gtk2")
-        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    if has("gui_gtk3")
+        "set guifont=Source\ Code\ Pro\ 11
+        set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
     elseif has("gui_macvim")
         set guifont=Inconsolata\-DZ\ for\ Powerline:h12
     endif
@@ -91,6 +105,16 @@ let g:ale_fix_on_save = 1
 
 "Ctrl-P
 let g:ctrlp_custom_ignore = 'build\|DS_Store\|git\|docs\|node_modules'
+
+"Dev Icons
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+"NERDTree
+let NERDTreeMinimalUI=1
+map <C-n> :NERDTreeToggle<CR>
+
+" Close VIM if NERDTree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "Indents
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
