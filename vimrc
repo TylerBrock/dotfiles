@@ -10,7 +10,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'pangloss/vim-javascript', { 'for': 'js' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'kien/ctrlp.vim'
@@ -39,8 +40,8 @@ set list
 set listchars=tab:\ \ ,trail:.,extends:#,nbsp:.
 set expandtab
 set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set numberwidth=1
 set smarttab
 set smartindent
@@ -57,7 +58,8 @@ set background=dark
 
 "GUI / Non-GUI settings
 if has("gui_running")
-    colorscheme nova
+    "colorscheme nova
+    colorscheme Tomorrow-Night
     highlight Directory guifg=#88AAEE
     highlight SignColumn ctermbg=8
     highlight clear SignColumn
@@ -99,7 +101,7 @@ cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
 "Ale
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint', 'flow'] }
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
 
@@ -117,7 +119,11 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "Indents
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
+"JavaScript
+let g:jsx_ext_required = 1
+let g:flow#enable = 0
