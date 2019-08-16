@@ -10,10 +10,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
+Plug 'hashivim/vim-terraform', { 'for': 'tf' }
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
@@ -24,7 +27,6 @@ Plug 'xolox/vim-notes'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'trevordmiller/nova-vim'
-Plug 'hashivim/vim-terraform'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 call plug#end()
 
@@ -77,7 +79,6 @@ if has("gui_running")
     endif
 else
     colorscheme Tomorrow-Night
-    set background=dark
 endif
 
 "Lightline
@@ -101,7 +102,7 @@ cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
 "Ale
-let g:ale_linters = { 'javascript': ['eslint', 'flow'] }
+let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'c': ['clang'] }
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
 
@@ -123,7 +124,11 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType c setlocal shiftwidth=2 tabstop=2 expandtab
 
 "JavaScript
 let g:jsx_ext_required = 1
 let g:flow#enable = 0
+
+"GraphQL
+let g:graphql_javascript_tags = ["gql"]
