@@ -13,10 +13,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow', { 'for': 'javascript' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
 Plug 'hashivim/vim-terraform', { 'for': 'tf' }
+Plug 'tpope/vim-markdown'
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
@@ -101,8 +103,15 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
+"Autocomplete
+set completeopt+=preview
+set completeopt+=menuone
+set completeopt+=noinsert
+set shortmess+=c " turn off completion messages
+
 "Ale
-let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'c': ['clang'] }
+let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'c': ['clang'], 'python': ['flake8', 'pylint'] }
+let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
 
@@ -121,10 +130,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "Indents
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType c setlocal shiftwidth=2 tabstop=2 expandtab
+
+"Python
+let python_highlight_all = 1
 
 "JavaScript
 let g:jsx_ext_required = 1
@@ -132,3 +146,13 @@ let g:flow#enable = 0
 
 "GraphQL
 let g:graphql_javascript_tags = ["gql"]
+
+"Enable mouse pane resizing in tmux
+set mouse+=a
+if &term =~ '^tmux'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" Markdown
+let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'sass']
